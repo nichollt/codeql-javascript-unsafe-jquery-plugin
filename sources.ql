@@ -2,7 +2,7 @@ import javascript
 
 predicate isSource(DataFlow::Node source) {
     exists(DataFlow::ParameterNode pluginOptions |
-        pluginOptions = ((DataFlow::FunctionNode)source).getLastParameter()
+        source = jquery().getAPropertyRead("fn").getAPropertySource() and pluginOptions = ((DataFlow::FunctionNode)source).getLastParameter()
     )
 }
 
